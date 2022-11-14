@@ -1,0 +1,13 @@
+.dice-col, .able-to-hover {
+  width: 110px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 5px solid transparent;
+}
+
+.able-to-hover:hover {
+  border: 5px solid #a6a6a6;
+  border-radius: 10px;
+}

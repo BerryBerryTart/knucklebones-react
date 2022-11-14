@@ -1,0 +1,30 @@
+#player-you {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+#player-bot {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.player-base {  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+}
+
+
+.score-total {
+  font-size: 25pt;
+}
+
+.roll-box {
+  width: 150px;
+  height: 150px;
+  background-color: rgb(71, 71, 71);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

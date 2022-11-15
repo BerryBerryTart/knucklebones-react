@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Game.css';
+import './toggle.css';
 import Col from './Col';
 import Player from './Player';
 import { getScoreMultiplier, randomRoll, columnMap } from './utils';
@@ -13,6 +14,7 @@ const Game = () => {
   const [yourScore, setYourScore] = useState(0);
   const [botScore, setBotScore] = useState(0);
   const [whoWon, setWhoWon] = useState(null);
+  const [hardmode, setHardmode] = useState(false);
 
   //CALCULATES YOUR SCORE
   useEffect(() => {
@@ -73,24 +75,36 @@ const Game = () => {
     if (botRoll && !yourTurn){
       setTimeout(() => {    
         tryBotMove();          
-      }, 1500);
+      }, 1000);
     }
   }, [botRoll])
 
   const tryBotMove = () => {  
-    if (!whoWon){  
-      let columnIndexChoices = [];
-      for (let i = 0; i < 3; i++){
-        if (opponentDiceStack[i].length < 3){
-          columnIndexChoices.push(i)
+    if (!whoWon){
+      let valid_move = false;
+      let randomCol;
+      // if (hardmode) {
+        //check for triples
+        
+        //check for doubles
+
+        //check for singles
+
+      // }
+      if (!valid_move){
+        let columnIndexChoices = [];
+        for (let i = 0; i < 3; i++){
+          if (opponentDiceStack[i].length < 3){
+            columnIndexChoices.push(i)
+          }
         }
-      }
-      let pickRandomCol = randomRoll(columnIndexChoices.length - 1, 0);    
-      let randomCol = columnIndexChoices[pickRandomCol]
-      let newState = structuredClone(opponentDiceStack);
-      newState[randomCol] = [...newState[randomCol], botRoll]
-      setOpponentDiceStack(newState);
-      setYourTurn(!yourTurn);
+        let pickRandomCol = randomRoll(columnIndexChoices.length - 1, 0);    
+        randomCol = columnIndexChoices[pickRandomCol]
+        let newState = structuredClone(opponentDiceStack);
+        newState[randomCol] = [...newState[randomCol], botRoll]
+        setOpponentDiceStack(newState);
+        setYourTurn(!yourTurn);
+      } 
 
       //ELIMINATE DUPES :3c
       let newPlayerState = structuredClone(yourDiceStack);
@@ -195,6 +209,13 @@ const Game = () => {
           youOrThem={true}
           enableHover={yourTurn && !whoWon}
         />
+      </div>
+      <div id="hard-mode">
+        <p>HARD MODE (he he he):</p>
+        <label className="switch">
+          <input type="checkbox" disabled={!yourTurn}/>
+          <span className="slider round"></span>
+        </label>
       </div>
     </div>
   )

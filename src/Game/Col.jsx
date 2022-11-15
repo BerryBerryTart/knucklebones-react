@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Col.css'
 import Dice from './Dice';
 import { getScoreMultiplier } from './utils';
@@ -6,8 +6,6 @@ import { getScoreMultiplier } from './utils';
 
 const Col = ({diceStack, youOrThem, handleClick, enableHover}) => {
   const [total, setTotal] = useState(0);
-
-
 
   useEffect(() => {
     if (diceStack){
@@ -54,7 +52,7 @@ const Col = ({diceStack, youOrThem, handleClick, enableHover}) => {
     if (!youOrThem){
       stack = stack.reverse()
     }
-    return stack;
+    return stack.map((item, key) => React.cloneElement(item, {key: key}));
   }
 
   const ableToHover = () => {

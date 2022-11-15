@@ -1,4 +1,5 @@
 import './Dice.css';
+import React from 'react';
 
 const Dice = ({value, scoreBG=1, emptySlot=false}) => {
   const valueMap = {
@@ -21,7 +22,7 @@ const Dice = ({value, scoreBG=1, emptySlot=false}) => {
     for (let i = 0; i < value; i++){
       dotMatrix.push(<span className="dot"></span>)
     }
-    return dotMatrix;
+    return dotMatrix.map((item, key) => React.cloneElement(item, {key: key}));
   }
 
   const getDots = (value) => {

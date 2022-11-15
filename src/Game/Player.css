@@ -15,7 +15,6 @@
   background-color: black;
 }
 
-
 .score-total {
   font-size: 25pt;
 }
@@ -27,4 +26,5 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 10px;
 }

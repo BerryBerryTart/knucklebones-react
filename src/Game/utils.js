@@ -1,5 +1,5 @@
-const randomRoll = () => { // min and max included 
-  return Math.floor(Math.random() * (6 - 1 + 1) + 1)
+const randomRoll = (max=6, min=1) => { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
 const getScoreMultiplier = (arr) => {
@@ -17,13 +17,14 @@ const getScoreMultiplier = (arr) => {
   return null;
 }
 
-const playerMap = {
-  player: "PLAYER",
-  bot: "BOT"
+const columnMap = {
+  0: 2,
+  1: 1,
+  2: 0
 }
 
 export {
   randomRoll,
   getScoreMultiplier,
-  playerMap
+  columnMap
 }

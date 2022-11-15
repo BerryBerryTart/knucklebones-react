@@ -4,7 +4,7 @@ import Dice from './Dice';
 import { getScoreMultiplier } from './utils';
 
 
-const Col = ({diceStack, youOrThem, handleClick}) => {
+const Col = ({diceStack, youOrThem, handleClick, enableHover}) => {
   const [total, setTotal] = useState(0);
 
 
@@ -49,12 +49,16 @@ const Col = ({diceStack, youOrThem, handleClick}) => {
       for(let i = stack.length; i < 3; i++){
         stack.push(<Dice emptySlot={true}/>)
       }      
-    }    
+    }
+    //REVERSE FOR OPPONENT
+    if (!youOrThem){
+      stack = stack.reverse()
+    }
     return stack;
   }
 
   const ableToHover = () => {
-    if (diceStack.length < 3){
+    if (enableHover && diceStack.length < 3){
       return "able-to-hover";
     }
     return "";
@@ -62,8 +66,9 @@ const Col = ({diceStack, youOrThem, handleClick}) => {
 
   return (
     <div onClick={handleClick} className={"dice-col " + ableToHover()}>
-      <p>{total}</p>
+      {youOrThem && <p>{total}</p>}
       {renderDiceStack(diceStack)}
+      {!youOrThem && <p>{total}</p>}
     </div>
   )
 }

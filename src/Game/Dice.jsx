@@ -96,7 +96,7 @@ const Dice = ({value, scoreBG=1, emptySlot=false}) => {
 
   if(emptySlot){
     return(
-      <span className="dice empty"></span>
+      <span className="empty"></span>
     )
   }
 

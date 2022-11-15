@@ -5,6 +5,12 @@
   margin: 5px;
   border-radius: 15px;
   padding: 10px;
+  animation: fadein 0.5s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 .regular-dice{
@@ -12,15 +18,23 @@
 }
 
 .double-score-dice {
+  transition: 0.5s;
   background: #ffeb7d;
 }
 
 .triple-score-dice {
+  transition: 0.5s;
   background: #86d9ff;
 }
 
 .empty {
   border: 2px solid white;
+  width: 78px;
+  height: 78px;
+  display: inline-block;  
+  margin: 5px;
+  border-radius: 15px;
+  padding: 10px;
 }
 
 .dot {

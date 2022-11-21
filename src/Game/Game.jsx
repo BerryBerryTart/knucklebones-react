@@ -101,7 +101,6 @@ const Game = () => {
       //ELIMINATE DUPES :3c
       let newPlayerState = removeDupes(yourDiceStack, randomCol, botRoll);
       setYourDiceStack(newPlayerState);
-      console.log(`BOT PLAYED A: ${botRoll} IN INDEX: ${randomCol}`);
       setBotRoll(null);
     }
   }
@@ -156,7 +155,7 @@ const Game = () => {
     if (whoWon) {
       return false;
     }
-    return false;
+    return true;
   }
 
   const handleHardMode = (e) => {

@@ -53,6 +53,10 @@ const removeDupes = (stack, col, val) => {
   return newPlayerState;
 }
 
+const computeMove = (opponentStack, yourStack) => {
+
+}
+
 const columnMap = {
   0: 2,
   1: 1,
@@ -65,5 +69,6 @@ export {
   columnMap,
   returnScore,
   getKeyByValue,
-  removeDupes
+  removeDupes,
+  computeMove
 }
